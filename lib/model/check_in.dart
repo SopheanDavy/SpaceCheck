@@ -13,7 +13,13 @@ class CheckIn {
     this.checkOutAt,
   });
 
-  bool get isActive => checkOutAt == null;
+  bool isActive() {
+  if (checkOutAt == null) {
+    return true;   // Still inside the room
+  } else {
+    return false;  // Already left the room
+  }
+}
 
   void complete(DateTime checkOutTime) {
     if (checkOutTime.isBefore(checkInAt)) {
