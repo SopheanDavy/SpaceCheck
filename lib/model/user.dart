@@ -1,7 +1,7 @@
 enum UserRole { resident, manager }
 
 class User {
-  final int id;
+  final String id;
   final String name;
   final UserRole role;
 
