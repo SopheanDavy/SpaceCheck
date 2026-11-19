@@ -13,7 +13,7 @@ class CheckIn {
     this.checkOutAt,
   });
 
-  bool isActive() {
+  bool get isActive {
   if (checkOutAt == null) {
     return true;   // Still inside the room
   } else {
