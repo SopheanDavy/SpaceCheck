@@ -29,9 +29,9 @@ class Facility {
 
     List<CheckIn>? checkIns,
     List<Booking>? bookings,
-
-  }) : checkIns = checkIns ?? [], // allow passing existing lists from outside, this is Aggregation
-      bookings = bookings ?? [];
+  }) 
+  : checkIns =checkIns ??[], // allow passing existing lists from outside, this is Aggregation
+    bookings = bookings ?? [];
 
   int get currentOccupancy {
     int count = 0;
@@ -41,5 +41,20 @@ class Facility {
       }
     }
     return count;
+  }
+
+  bool isOpenAt(DateTime time) {
+    if (time.hour >= openingHour && time.hour < closingHour) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  bool get isFull {
+    if (currentOccupancy >= capacity) {
+      return true;
+    }
+    return false;
   }
 }
